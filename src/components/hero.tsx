@@ -2,10 +2,41 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import LiquidEther from "./LiquidEther";
 
 export function Hero() {
   const { theme } = useTheme();
+  const [interactionMode, setInteractionMode] = useState<"mouse" | "touch">("mouse");
+
+  useEffect(() => {
+    const hoverMq = window.matchMedia("(hover: hover)");
+    const pointerMq = window.matchMedia("(pointer: fine)");
+
+    const update = () => {
+      setInteractionMode(hoverMq.matches && pointerMq.matches ? "mouse" : "touch");
+    };
+
+    update();
+
+    const onChange = () => update();
+
+    if ("addEventListener" in hoverMq) {
+      hoverMq.addEventListener("change", onChange);
+      pointerMq.addEventListener("change", onChange);
+      return () => {
+        hoverMq.removeEventListener("change", onChange);
+        pointerMq.removeEventListener("change", onChange);
+      };
+    }
+
+    hoverMq.addListener(onChange);
+    pointerMq.addListener(onChange);
+    return () => {
+      hoverMq.removeListener(onChange);
+      pointerMq.removeListener(onChange);
+    };
+  }, []);
 
   const scrollTo = (href: string) => {
     const element = document.getElementById(href.substring(1));
@@ -48,9 +79,14 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="mb-6 flex justify-center"
           >
-            <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-sm font-medium tracking-wide">
-              Available for new projects
-            </span>
+            <div className="flex flex-col items-center gap-2">
+              <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-sm font-medium tracking-wide">
+                Available for new projects
+              </span>
+              {/* <span className="text-xs text-muted-foreground">
+                {interactionMode === "mouse" ? "Move your mouse to interact" : "Tap & drag to interact"}
+              </span> */}
+            </div>
           </motion.div>
 
           <motion.h1
