@@ -3,6 +3,7 @@ import { Mail, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,14 +35,45 @@ export function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, this would send an API request
-    console.log(values);
-    toast({
-      title: "Message Sent Successfully",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast({
+        title: "Email not configured",
+        description: "Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to your env.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: values.name,
+          time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          reply_to: values.email,
+          message: values.message,
+        },
+        { publicKey },
+      );
+
+      toast({
+        title: "Message Sent Successfully",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch {
+      toast({
+        title: "Message failed to send",
+        description: "Please try again in a moment.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -75,7 +107,7 @@ export function Contact() {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-lg mb-1">Email</h3>
-                <p className="text-muted-foreground">hello@developer.io</p>
+                <p className="text-muted-foreground">favouroloda24@gmail.com</p>
               </CardContent>
             </Card>
 
@@ -85,7 +117,7 @@ export function Contact() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
-                <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                <p className="text-muted-foreground">+234 (90) 3735-4335</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -146,8 +178,14 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full text-base font-semibold" data-testid="button-submit">
-                  Send Message
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full text-base font-semibold"
+                  disabled={form.formState.isSubmitting}
+                  data-testid="button-submit"
+                >
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>

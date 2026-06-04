@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
-  { name: "Tech Stack", href: "#tech-stack" },
+  // { name: "Tech Stack", href: "#tech-stack" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
@@ -61,7 +61,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex justify-center">
         <nav className="flex items-center justify-between px-6 py-3 w-full max-w-3xl bg-background/70 backdrop-blur-md border border-border rounded-full shadow-sm">
           <div className="font-bold text-lg tracking-tight mr-8 text-primary">
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}>DevPort.</a>
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}>Favskid</a>
           </div>
 
           {/* Desktop Nav */}
@@ -110,7 +110,7 @@ export function Navbar() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[250px] sm:w-[300px]">
-                  <SheetTitle className="text-left mb-6 text-primary">DevPort.</SheetTitle>
+                  <SheetTitle className="text-left mb-6 text-primary">Favskid</SheetTitle>
                   <nav className="flex flex-col gap-4">
                     {NAV_LINKS.map((link) => (
                       <a
