@@ -42,23 +42,27 @@ export function About() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">About Me</h2>
             <div className="space-y-4 text-lg text-muted-foreground mb-8">
               <p>
-                I'm a passionate frontend developer dedicated to building exceptional digital experiences. 
-                With a deep understanding of modern web technologies, I transform complex requirements into 
-                elegant, high-performance applications.
+                I’m Oloda Favour, a Full-Stack Developer focused on building modern, scalable, and high-performance web applications.
+                I specialize in turning ideas into complete 
+                digital products from intuitive user interfaces to robust backend 
+                systems and APIs. My goal is to create applications that are not only visually appealing but 
+                also fast, secure, and production-ready.
+
+                
               </p>
               <p>
-                My approach combines technical expertise with a keen eye for design, ensuring that every 
-                project not only works flawlessly but looks incredible. I specialize in the React ecosystem, 
-                creating responsive, accessible, and scalable interfaces.
+                I work across the full JavaScript ecosystem, 
+                building responsive frontends and reliable backend 
+                architectures that deliver seamless user experiences.
               </p>
             </div>
 
             <div className="space-y-3 mb-8">
               {[
-                "Pixel-perfect design implementation",
-                "Performance optimization & SEO",
-                "Clean, maintainable code architecture",
-                "Seamless user experiences"
+                "Full-stack web application development",
+                "API design and backend integration",
+                "Performance optimization & SEO best practices",
+                "Clean, scalable, and maintainable code architecture"
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-foreground font-medium">
                   <CircleCheck className="h-5 w-5 text-primary" />

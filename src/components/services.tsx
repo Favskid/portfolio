@@ -4,22 +4,22 @@ import { Code, Layout, Paintbrush, MonitorSmartphone } from "lucide-react";
 const SERVICES = [
   {
     title: "Website Development",
-    description: "Fast, secure, and highly scalable custom websites tailored to your specific business needs and objectives.",
+    description: "Custom full-stack web applications built with modern technologies, including frontend interfaces, backend systems, APIs, and databases tailored to your business needs.",
     icon: MonitorSmartphone,
   },
   {
-    title: "Frontend Development",
-    description: "Translating complex design systems into robust, accessible, and performant user interfaces using modern frameworks.",
+    title: "Full-Stack Development",
+    description: "Building complete web solutions from user interface to server-side logic, including authentication, APIs, database design, and scalable system architecture.",
     icon: Code,
   },
   {
     title: "Website Redesign",
-    description: "Revitalizing outdated platforms with modern aesthetics, improved user experience, and optimized performance metrics.",
+    description: "Transforming outdated platforms into modern full-stack applications with improved UI/UX, optimized performance, and upgraded backend architecture where needed.",
     icon: Paintbrush,
   },
   {
     title: "Landing Page Development",
-    description: "High-converting, visually striking landing pages engineered for maximum engagement and lead generation.",
+    description: "High-converting, performance-optimized landing pages built with modern frontend frameworks and connected backend systems for lead capture and analytics integration.",
     icon: Layout,
   }
 ];
@@ -37,7 +37,7 @@ export function Services() {
         >
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Comprehensive frontend solutions designed to elevate your digital presence.
+            End-to-end full-stack web solutions designed to build, scale, and optimize modern digital products.
           </p>
         </motion.div>
 
