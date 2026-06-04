@@ -4,43 +4,43 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-import projectUrlImg from "@/assets/images/project-url.png";
-import projectPortfolioImg from "@/assets/images/project-portfolio.png";
-import projectLandingImg from "@/assets/images/project-landing.png";
 import pocNoamanLanding from "@/assets/images/pocNoaman-landing.png";
+import nmcLanding from "@/assets/images/nmc-landing.png";
+import siwesLanding from "@/assets/images/siwes-landing.png"
+import philipsLanding from "@/assets/images/philips-luxury.png"
 
 const PROJECTS = [
   {
-    title: "Kitchen utensils website",
-    description: "A luxury e-commerce platform for a premium perfume brand with high-end aesthetic, shopping cart, and secure checkout.",
+    title: "Poc&Noaman Kitchen & Interior Solutions",
+    description: "A professional business website for a kitchen and interior solutions brand, showcasing kitchen utensils, cabinets, doors, and home improvement products with a modern design and optimized user experience.",
     image: pocNoamanLanding,
-    tech: ["React", "Next.js", "Stripe", "Tailwind CSS"],
-    demoLink: "#",
+    tech: ["Wordpress", "SEO"],
+    demoLink: "https://www.pocnoaman.com/",
     githubLink: "#",
   },
   {
-    title: "URL Shortener",
-    description: "A high-performance SaaS dashboard for link management with real-time analytics, custom domains, and user workspaces.",
-    image: projectUrlImg,
-    tech: ["Node.js", "PostgreSQL", "React", "Recharts"],
-    demoLink: "#",
-    githubLink: "#",
+    title: "Departmental Management System",
+    description: "A modern departmental website designed for staff management, showcasing team members, providing contact information, and featuring a gallery for departmental activities and events with a clean and accessible interface.",
+    image: nmcLanding,
+    tech: ["React.js", "Tailwind.css", "Daisy UI"],
+    demoLink: "https://departmental-site.vercel.app/",
+    githubLink: "https://github.com/Favskid/departmental-site",
   },
   {
-    title: "Portfolio Website",
-    description: "An immersive, animation-driven developer portfolio showcasing interactive UI patterns and performant rendering.",
-    image: projectPortfolioImg,
-    tech: ["React", "Framer Motion", "Tailwind CSS"],
-    demoLink: "#",
-    githubLink: "#",
+  title: "SIWES Logbook Web App",
+  description: "A role-based web application for SIWES management, allowing students to submit weekly log entries while supervisors review, approve, or reject submissions with a structured workflow system.",
+    image: siwesLanding,
+    tech: ["React.js", "Tailwind.css", "Node.js", "Express.js"],
+    demoLink: "https://siwes-elogbook.vercel.app/login",
+    githubLink: "https://github.com/Favskid/siwes-elogbook",
   },
   {
-    title: "Business Landing Page",
-    description: "A high-converting corporate landing page optimized for speed and SEO, featuring custom geometry and clean typography.",
-    image: projectLandingImg,
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    title: "Philips Luxury Perfume Store",
+    description: "A luxury fragrance e-commerce platform with WhatsApp-based ordering, allowing users to browse premium perfumes and place orders directly via WhatsApp for fast and seamless purchase flow.",
+    image: philipsLanding,
+    tech: ["React.js", "Tailwind CSS"],
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/Favskid/Philip-s-Luxury",
   }
 ];
 
