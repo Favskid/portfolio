@@ -76,9 +76,9 @@ export function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover w-full h-full transition-transform duration-500 md:group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                <div className="absolute inset-0 bg-black/40 opacity-100 pointer-events-auto md:opacity-0 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto transition-opacity duration-300 flex items-center justify-center gap-4">
                   <Button variant="secondary" size="sm" className="rounded-full" asChild>
                     <a href={project.demoLink} target="_blank" rel="noreferrer" data-testid={`project-demo-${index}`}>
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
