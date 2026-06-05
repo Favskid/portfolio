@@ -39,7 +39,7 @@ const PROJECTS = [
     description: "A luxury fragrance e-commerce platform with WhatsApp-based ordering, allowing users to browse premium perfumes and place orders directly via WhatsApp for fast and seamless purchase flow.",
     image: philipsLanding,
     tech: ["React.js", "Tailwind CSS"],
-    demoLink: "#",
+    demoLink: "https://philip-s-luxury.vercel.app/",
     githubLink: "https://github.com/Favskid/Philip-s-Luxury",
   }
 ];
